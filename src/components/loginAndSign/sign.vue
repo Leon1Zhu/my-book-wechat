@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section class="regist-content">
 
     </section>
 </template>
@@ -7,6 +7,7 @@
 <script>
 
     export default{
+        name:'registModule',
         data(){
             return {}
         },

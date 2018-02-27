@@ -1,6 +1,26 @@
+@import './globalCss';
 html,body,#app{
   position: relative;
   width:100%;
   height:100%;
 }
 
+.wc-input{
+  display: inline-block;
+  width:100%;
+  height:32px;
+  line-height:1.5;
+  border:1px solid #dddee1;
+  border-radius:4px;
+  background-color: #fff;
+  background-image: none;
+  position: relative;
+  cursor: text;
+  transition: border .2s ease-in-out,box-shadow .2s ease-in-out;
+}
+
+.wc-input:focus{
+  border:1px solid $systemColor;
+  box-shadow: 0 0 5px $systemColor;
+  outline:none;
+}
