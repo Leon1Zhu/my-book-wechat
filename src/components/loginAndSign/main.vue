@@ -60,14 +60,14 @@ import registModule from './sign.vue'
         border-radius:10px;
         border:1px solid #ccc;
         box-shadow: 0 0 7px;
-        transform: scaleX(.95) scaleY(.9);;
+        transform: scaleX(.95) scaleY(.9);
         transition: transform .3s ease;
       }
       .login-content{
         top:0;
       }
       .regist-content{
-        top:1.5rem;
+        top:2rem;
       }
       .active{
         z-index:2;
@@ -104,6 +104,13 @@ import registModule from './sign.vue'
 
     .login-font.showLoginFont,.regist-font.showRegistFont{
       transform: scale(1);
+    }
+    .login-content.active,.regist-content.active{
+      .alien-input,.code-content{
+        pointer-events: auto;
+        opacity:1;
+        transform: scale(1);
+      }
     }
 
   }

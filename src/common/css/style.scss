@@ -16,6 +16,24 @@ body{
     @include font-dpr(14px);
   }
 }
+.wc-button{
+  color: #fff;
+  border:1px solid $systemColor;
+  background: $systemColor;
+  outline:0;
+  display: inline-block;
+  font-weight:400;
+  white-space:nowrap;
+  height:1rem;
+  line-height:1rem;
+  @include font-dpr(12px);
+  border-radius: 4px;
+}
+.wc-button.small{
+  height:.8rem;
+  line-height:.8rem;
+  @include font-dpr(10px);
+}
 .wc-input{
   @include font-dpr(14px);
   display: inline-block;

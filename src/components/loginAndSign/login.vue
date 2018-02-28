@@ -52,6 +52,7 @@ import alienInput from '../../common/vue/alienInput.vue'
 <style lang="scss" rel="stylesheet/scss">
   @import "../../common/css/globalCss";
   .login-content{
+    padding-bottom: .5rem;
     .title{
       @include font-dpr(20px);
       padding: .5rem 0rem 1rem .2rem;
@@ -68,13 +69,20 @@ import alienInput from '../../common/vue/alienInput.vue'
       color: $systemColor;
       @include font-dpr(18px);
       text-align: center;
-      margin-bottom: .5rem;
+      margin: .5rem 0;
       transition: transform .2s ease-out;
       transform-origin: center 30%;
     }
 
     .login-font.showLoginFont{
       transform: scale(1);
+    }
+    .alien-input{
+      transform-origin: top top 0;
+      pointer-events: none;
+      opacity:0;
+      transform: scale(1.2);
+      transition:opacity .3s,transform .3s;
     }
   }
 </style>

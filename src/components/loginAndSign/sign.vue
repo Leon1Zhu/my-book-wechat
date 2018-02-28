@@ -5,10 +5,12 @@
       <alienInput @on-change="changeValue" v-model="loginPassword"  labelValue="密码"></alienInput>
       <alienInput @on-change="changeValue" v-model="loginPasswordRepet"  labelValue="重复密码"></alienInput>
       <alienInput @on-change="changeValue" v-model="name"  labelValue="昵称"></alienInput>
-      <div class="code-content">
+      <div class="code-content" >
         <alienInput  @on-change="changeValue" v-model="securityCode"  labelValue="验证码"></alienInput>
-        <p  class="regist-font" :class="{'showRegistFont':showRegistFont}">注&nbsp;册</p>
+        <button class="wc-button">发送验证码</button>
       </div>
+      <p  class="regist-font" :class="{'showRegistFont':showRegistFont}">注&nbsp;册</p>
+      <p  class="help-font">点我注册</p>
     </section>
 </template>
 
@@ -59,6 +61,32 @@
     }
     .alien-input.float label{
       transform:translate3d(0,-.6rem,0) scale(.9);
+    }
+    .alien-input,.code-content{
+      pointer-events: none;
+      opacity:0;
+      transform: scale(1.2);
+      transition:opacity .3s,transform .3s;
+    }
+    .code-content{
+       .alien-input{
+         display: inline-block;
+         width:60%;
+       }
+      .wc-button{
+        display: inline-block;
+        width:30%;
+      }
+    }
+    .help-font{
+      position: absolute;
+      bottom:0;
+      margin:0 auto;
+      color: $systemColor;
+      @include font-dpr(18px);
+      text-align: center;
+      transition: transform .2s ease-out;
+      transform-origin: center 30%;
     }
   }
 </style>
