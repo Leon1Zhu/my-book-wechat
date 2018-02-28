@@ -60,18 +60,19 @@ import registModule from './sign.vue'
         border-radius:10px;
         border:1px solid #ccc;
         box-shadow: 0 0 7px;
-        transform: scaleX(.95) scaleY(.9);
         transition: transform .3s ease;
       }
       .login-content{
+        transform: scale(.9) translateY(0);
         top:0;
       }
       .regist-content{
+        transform: scale(.9) translateY(-2rem);
         top:2rem;
       }
       .active{
         z-index:2;
-        transform: scale(1);
+        transform: scale(1) translateY(0);
       }
     }
 

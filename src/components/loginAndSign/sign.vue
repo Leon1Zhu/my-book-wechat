@@ -80,13 +80,23 @@
     }
     .help-font{
       position: absolute;
-      bottom:0;
-      margin:0 auto;
+      bottom:.7rem;
+      width:100%;
+      opacity:1;
       color: $systemColor;
       @include font-dpr(18px);
       text-align: center;
-      transition: transform .2s ease-out;
+      transition: transform .2s ease-out,opacity .2s ease-out;
+      transform: scale(1);
       transform-origin: center 30%;
+      pointer-events: auto;
+    }
+  }
+  .regist-content.active{
+    .help-font{
+      pointer-events: none;
+      opacity:0;
+      transform: scale(1.2);
     }
   }
 </style>
