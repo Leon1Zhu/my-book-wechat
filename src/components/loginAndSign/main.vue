@@ -25,9 +25,9 @@ import registModule from './sign.vue'
         created(){
         },
         mounted(){
-          this.$Message.info({
-            content: 'Ill be gone in 10 seconds',
-            duration: 100
+          this.$Message.warning({
+            content: '这是一条普通的提示',
+            duration: 1
           });
         },
         methods: {
