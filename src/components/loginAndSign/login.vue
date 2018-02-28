@@ -3,8 +3,8 @@
       <h2 class="title">账户登陆</h2>
       <div class="login-info">
         <div class="username-item">
-          <alienInput labelValue="用户名"></alienInput>
-          <alienInput labelValue="密码"></alienInput>
+          <alienInput @on-change="changeValue" v-model="loginName" :value="loginName" labelValue="用户名/手机号"></alienInput>
+          <alienInput @on-change="changeValue" v-model="loginPassword" :value="loginPassword" labelValue="密码"></alienInput>
 
           <a class="forget-passowrd">忘记密码？</a>
           <p class="login-font  " :class="{'showLoginFont' : showLoginFont}">登&nbsp;陆</p>
@@ -25,15 +25,6 @@ import alienInput from '../../common/vue/alienInput.vue'
               showLoginFont:false
             }
         },
-        watch:{
-          loginName(){
-            this.notNull() ? this.showLoginFont = true : this.showLoginFont = false
-          },
-          loginPassword(){
-              console.log(this.notNull() )
-            this.notNull() ? this.showLoginFont = true : this.showLoginFont = false
-          }
-        },
         components: {
             alienInput,
         },
@@ -48,6 +39,13 @@ import alienInput from '../../common/vue/alienInput.vue'
               }
               return false;
             },
+            changeValue(){
+                if(!this.$isnull(this.loginName) && !this.$isnull(this.loginPassword)){
+                    this.showLoginFont = true;
+                }else{
+                    this.showLoginFont = false;
+                }
+            }
         }
     }
 </script>
@@ -56,9 +54,8 @@ import alienInput from '../../common/vue/alienInput.vue'
   .login-content{
     .title{
       @include font-dpr(20px);
-      padding: 1rem 0rem 1rem .2rem;
+      padding: .5rem 0rem 1rem .2rem;
     }
-
     .forget-passowrd{
       display: block;
       text-align: right;

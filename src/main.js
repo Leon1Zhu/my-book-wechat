@@ -7,6 +7,11 @@ import './filter'
 import './common/css/style.scss'
 import './globalFun'
 import './mainFun'
+import './common/css/iconfont.scss'
+import './common/css/a.scss'
+import Message from './common/vue/message'
+Vue.prototype.$Message = Message;
+
 Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
@@ -15,6 +20,7 @@ new Vue({
   template: '<App/>',
   components: { App }
 })
+
 /*
 new Vue({
   router,

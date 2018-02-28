@@ -25,6 +25,10 @@ import registModule from './sign.vue'
         created(){
         },
         mounted(){
+          this.$Message.info({
+            content: 'Ill be gone in 10 seconds',
+            duration: 100
+          });
         },
         methods: {
         }
@@ -32,11 +36,13 @@ import registModule from './sign.vue'
 </script>
 <style lang="scss" rel="stylesheet/scss">
   @import '../../common/css/keyframes';
+  @import '../../common/css/globalCss';
   .login-regist-content{
     width:100%;
     height:100%;
     position: relative;
     background: black;
+
     .wc-input{
       margin-bottom:.5rem;
     }
@@ -45,9 +51,6 @@ import registModule from './sign.vue'
       display: inline-block;
       width:100%;
       position: absolute;
-      .regist-content{
-        height:350px;
-      }
       .login-content,.regist-content{
         z-index:1;
         position: absolute;
@@ -64,7 +67,7 @@ import registModule from './sign.vue'
         top:0;
       }
       .regist-content{
-        top:100px;
+        top:1.5rem;
       }
       .active{
         z-index:2;
@@ -89,5 +92,19 @@ import registModule from './sign.vue'
       width:90%;
       margin-left:5%;
     }
+    .login-font,.regist-font{
+      transform:scale(0);
+      color: $systemColor;
+      @include font-dpr(18px);
+      text-align: center;
+      margin-bottom: .5rem;
+      transition: transform .2s ease-out;
+      transform-origin: center 30%;
+    }
+
+    .login-font.showLoginFont,.regist-font.showRegistFont{
+      transform: scale(1);
+    }
+
   }
 </style>

@@ -1,7 +1,12 @@
 <template>
     <div class="alien-input input-item" :class="{'float' : floatClass}">
        <label>{{labelValue}}</label>
-      <input @focus="floatClass = true" @blur="blurInput" class="wc-input" :type="type" >
+      <input :value="currentValue"
+             @focus="floatClass = true"
+             @change="handleChange"
+             @blur="blurInput"
+             @input="handleInput"
+             class="wc-input" :type="type" >
       <span></span>
     </div>
 </template>
@@ -17,11 +22,16 @@
           type:{
             type:String,
             default:'text'
+          },
+          value:{
+            type:[String,Number],
+            default:''
           }
         },
         data(){
             return {
                 floatClass:false,
+                currentValue:this.value,
             }
         },
         components: {},
@@ -31,9 +41,19 @@
 
         },
         methods: {
+          handleInput (event) {
+            let value = event.target.value;
+            this.currentValue = value;
+            this.$emit('input', value);
+            this.$emit('on-change', event);
+
+          },
           blurInput(e){
               this.$isnull(e.target.value) && (this.floatClass = false);
-          }
+          },
+          handleChange (event) {
+            this.$emit('on-input-change', event);
+          },
         }
     }
 </script>
@@ -43,14 +63,16 @@
     width:100%;
     position: relative;
     label{
+      pointer-events: none;
       position: absolute;
-      top:0;
+      top:.4rem;
       left:0;
       z-index:2;
       transform:translate3d(0,0,0) scale(1);
       transition: transform .45s cubic-bezier(.23,1,.32,1);
     }
     .wc-input{
+      margin-top:.4rem;
       border:none;
       border-bottom:1px solid #dddee1;
       border-radius:0px;
@@ -76,6 +98,6 @@
     }
   }
   .alien-input.float label{
-    transform:translate3d(0,-.8rem,0) scale(.9);
+    transform:translate3d(0,-.7rem,0) scale(.9);
   }
 </style>
