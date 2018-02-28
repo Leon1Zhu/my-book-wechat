@@ -6,6 +6,7 @@ import './common/css/reset.css'
 import './filter'
 import './common/css/style.scss'
 import './globalFun'
+import './mainFun'
 Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
@@ -14,7 +15,6 @@ new Vue({
   template: '<App/>',
   components: { App }
 })
-
 /*
 new Vue({
   router,

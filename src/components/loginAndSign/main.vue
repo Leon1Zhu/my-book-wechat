@@ -4,7 +4,6 @@
         <loginModule :class="{'active': isLogin}" @click.native="isLogin=true">
         </loginModule>
         <registModule :class="{'active': !isLogin}" @click.native="isLogin=false"></registModule>
-        <div style="color: white;position: absolute;top: -100px;left: 0;" @click="loginAction=true">登陆</div>
       </div>
     </section>
 </template>
@@ -38,17 +37,22 @@ import registModule from './sign.vue'
     height:100%;
     position: relative;
     background: black;
+    .wc-input{
+      margin-bottom:.5rem;
+    }
     .main-content{
       top:20%;
       display: inline-block;
       width:100%;
       position: absolute;
+      .regist-content{
+        height:350px;
+      }
       .login-content,.regist-content{
         z-index:1;
         position: absolute;
         width:90%;
         margin-left:5%;
-        height:350px;
         background: #fff;
         border-radius:10px;
         border:1px solid #ccc;
@@ -58,7 +62,6 @@ import registModule from './sign.vue'
       }
       .login-content{
         top:0;
-        heighEt:350px;
       }
       .regist-content{
         top:100px;
@@ -81,6 +84,10 @@ import registModule from './sign.vue'
       .login-content,.regist-content{
         display: none;
       }
+    }
+    .input-item{
+      width:90%;
+      margin-left:5%;
     }
   }
 </style>

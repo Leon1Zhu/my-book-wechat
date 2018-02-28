@@ -1,26 +1,42 @@
 @import './globalCss';
 html,body,#app{
+  font-family: sans-serif;
   position: relative;
   width:100%;
   height:100%;
 }
-
+body{
+  overflow: hidden;
+}
+.input-item{
+  label{
+    padding: .3rem 0;
+    display: block;
+    color: rgb(192,191,199);
+    @include font-dpr(14px);
+  }
+}
 .wc-input{
+  @include font-dpr(14px);
   display: inline-block;
   width:100%;
-  height:32px;
+  height:.8rem;
   line-height:1.5;
   border:1px solid #dddee1;
   border-radius:4px;
   background-color: #fff;
-  background-image: none;
   position: relative;
   cursor: text;
   transition: border .2s ease-in-out,box-shadow .2s ease-in-out;
+  @include font-dpr(14px);
+  color: rgba(0,0,0,.7);
 }
 
 .wc-input:focus{
   border:1px solid $systemColor;
-  box-shadow: 0 0 5px $systemColor;
+  box-shadow: 0 0 2px $systemColor;
   outline:none;
 }
+
+
+
